@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <h1 id="title">The Shoppies Nomination Site</h1>
-    <SearchBar/>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import SearchBar from './components/SearchBar.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    SearchBar
+    HelloWorld
   }
 }
 </script>
@@ -24,6 +24,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-size: cover;
 }
 </style>

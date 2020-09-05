@@ -35,8 +35,10 @@ body{
 
 #title{
   color: white;
-  text-shadow: 2px -1px 3px currentColor;
+  font-weight: bold;
   font-size: 4em;
   margin-bottom: 60px;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
 </style>

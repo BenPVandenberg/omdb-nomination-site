@@ -10,7 +10,7 @@
       {{ movie.Year }}
     </div>
     <div>
-      <b-button @click="nominate" :hidden="is_nominated">Nominate</b-button>
+      <b-button @click="nominate" :hidden="is_nominated" :disabled="!button_state">Nominate</b-button>
       <!-- source for checkmark https://stackoverflow.com/questions/41078478/css-animated-checkmark -->
       <svg :hidden="!is_nominated" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
         <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
@@ -26,21 +26,36 @@ export default {
   props: ["movie"], // movie data to display
   data () {
     return {
-      is_nominated: false //  if the user has nominated this title
+      is_nominated: false, //  if the user has nominated this title
+      button_state: true
     }
   },
   methods: {
     nominate () {
       this.$store.commit('ADD_NOMINATION', this.movie);
+      if (this.nominations.length === 5) {
+        this.$swal({
+          title: 'Max Nominations Reached',
+          icon: 'success'
+        })
+      }
+    },
+    update () {
+      this.get_is_nominated()
+      this.get_is_max_hit()
     },
     get_is_nominated () {
       // go through nominations checking for this one
       for (let movie in this.nominations) {
         if (this.nominations[movie].imdbID === this.movie.imdbID) {
-          return true;
+          this.is_nominated = true;
+          return;
         }
       }
-      return false;
+      this.is_nominated = false;
+    },
+    get_is_max_hit () {
+      this.button_state = this.nominations.length < 5
     }
   },
   computed: {
@@ -51,14 +66,14 @@ export default {
   watch: {
     nominations: {
       handler() {
-        this.is_nominated = this.get_is_nominated()
+        this.update()
       },
       deep: true
     }
   },
   created () {
     // check if its already been nominated
-    this.is_nominated = this.get_is_nominated()
+    this.update()
   }
 };
 </script>

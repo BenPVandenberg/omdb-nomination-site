@@ -3,7 +3,7 @@
     <div class="contentWrap">
       <b-row>
         <b-col>
-          <b-form-input v-model="movie_search_text" placeholder="Movie Search" @keydown.enter.native="search"></b-form-input>
+          <b-form-input v-model="movie_search_text" placeholder="Search" @keydown.enter.native="search"></b-form-input>
         </b-col>
         <b-col md="auto">
           <font-awesome-icon id="search_icon" icon="search" size="2x" @click="search" />
@@ -23,11 +23,8 @@ export default {
   },
   methods: {
     search ()  {
-      // if not empty
-      if (this.movie_search_text.trim()){
-        // update store with new value
-        this.$store.commit('UPDATE_SEARCH_TEXT', this.movie_search_text)
-      }
+      // update store with new value
+      this.$store.commit('UPDATE_SEARCH_TEXT', this.movie_search_text)
     }
   }
 }

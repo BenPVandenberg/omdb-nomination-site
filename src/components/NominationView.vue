@@ -43,6 +43,15 @@ export default {
 </script>
 
 <style scoped>
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .pageWrapper{
   display: flex;
   color: white;
@@ -51,6 +60,7 @@ export default {
   justify-content: center;
   align-items: baseline;
   margin-bottom: 20px;
+  animation: createBox .75s;
 }
 
 .contentWrap{

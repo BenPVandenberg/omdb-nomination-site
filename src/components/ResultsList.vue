@@ -16,12 +16,21 @@ export default {
   },
   data () {
     return  {
-      movies: [] // array of movies to display
+      movies: [], // array of movies to display
+      error_text: null
     }
   },
   methods: {
     update_list (data) { // required to have async work properly
+    if (data.Response === "True" || this.search_text === '') {
       this.movies = data.Search;
+    } 
+    else {
+      this.$swal({
+        icon: 'error',
+        title: data.Error
+      })
+    }
     }
   },
   watch: {

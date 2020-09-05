@@ -33,6 +33,8 @@ export default {
   methods: {
     nominate () {
       this.$store.commit('ADD_NOMINATION', this.movie);
+
+      // tells user if max nominations has been hit
       if (this.nominations.length === 5) {
         this.$swal({
           title: 'Max Nominations Reached',

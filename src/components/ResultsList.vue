@@ -1,6 +1,6 @@
 <template>
   <div class="pageWrapper">
-    <div class="contentWrap" v-for="movie in movies" v-bind:key="movie.Title">
+    <div class="contentWrap" v-for="movie in movies" v-bind:key="movie.imdbID">
       <MovieView :movie="movie" />
     </div>
   </div>
@@ -16,11 +16,11 @@ export default {
   },
   data () {
     return  {
-      movies: []
+      movies: [] // array of movies to display
     }
   },
   methods: {
-    update_list (data) {
+    update_list (data) { // required to have async work properly
       this.movies = data.Search;
     }
   },
@@ -28,6 +28,7 @@ export default {
     search_text: {
       handler(new_value) {
         let update_list = this.update_list;
+        // get movies 
         fetch(`https://omdbapi.com/?s=${new_value}&type=movie&apikey=5a15e8f`)
           .then(response => response.json())
           .then(data => {

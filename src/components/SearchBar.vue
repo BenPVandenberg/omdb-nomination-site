@@ -24,7 +24,7 @@ export default {
   methods: {
     search ()  {
       // if not empty
-      if (!this.movie_search_text.trim()){
+      if (this.movie_search_text.trim()){
         // update store with new value
         this.$store.commit('UPDATE_SEARCH_TEXT', this.movie_search_text)
       }
@@ -41,6 +41,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
+  margin-bottom: 20px;
 }
 
 .contentWrap{
@@ -49,7 +50,7 @@ export default {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 60%;
-  background: rgba(0, 0, 0, 0.54);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
   text-align: center;
 }

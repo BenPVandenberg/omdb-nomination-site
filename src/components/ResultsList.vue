@@ -1,6 +1,6 @@
 <template>
   <div class="pageWrapper">
-    <div class="contentWrap" v-for="movie in movies" v-bind:key="movie">
+    <div class="contentWrap" v-for="movie in movies" v-bind:key="movie.Title">
       <MovieView :movie="movie" />
     </div>
   </div>
@@ -16,13 +16,23 @@ export default {
   },
   data () {
     return  {
-      movies: ['hi', 'sfdg']
+      movies: []
+    }
+  },
+  methods: {
+    update_list (data) {
+      this.movies = data.Search;
     }
   },
   watch: {
     search_text: {
       handler(new_value) {
-        console.log(new_value)
+        let update_list = this.update_list;
+        fetch(`https://omdbapi.com/?s=${new_value}&type=movie&apikey=5a15e8f`)
+          .then(response => response.json())
+          .then(data => {
+            update_list(data)
+          });
       }
     }
   },
@@ -34,25 +44,31 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .pageWrapper{
+  width: 60%;
   display: flex;
   color: white;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.contentWrap{
+.pageWrapper .contentWrap{
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  width: 60%;
-  background: rgba(0, 0, 0, 0.54);
+  margin-right: 20px;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
   text-align: center;
+  width: 15%;
+  min-width: 210px;
+  min-height: 415px;
 }
 </style>

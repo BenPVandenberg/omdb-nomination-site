@@ -3,6 +3,7 @@ import 'mutationobserver-shim'
 import Vue from 'vue'
 import './plugins/fontawesome'
 import './plugins/bootstrap-vue'
+import './plugins/sweetalert2'
 import App from './App.vue'
 import store from './store'
 

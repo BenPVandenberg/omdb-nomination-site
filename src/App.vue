@@ -2,15 +2,19 @@
   <div id="app">
     <h1 id="title">The Shoppies Nomination Site</h1>
     <SearchBar/>
+    <ResultsList/>
   </div>
 </template>
 
 <script>
 import SearchBar from './components/SearchBar.vue'
+import ResultsList from './components/ResultsList.vue'
+
 export default {
   name: 'App',
   components: {
-    SearchBar
+    SearchBar,
+    ResultsList
   }
 }
 </script>

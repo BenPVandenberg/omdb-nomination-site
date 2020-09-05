@@ -30,7 +30,7 @@ export default {
 }
 
 body{
-  background-image: url("./assets/pattern.jpeg");
+  background-image: url("./assets/pattern.jpg");
 }
 
 #title{

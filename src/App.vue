@@ -30,13 +30,13 @@ export default {
 }
 
 body{
-  background-image: url("./assets/background-image.jpg");
-  background-size: auto;
+  background-image: url("./assets/pattern.jpeg");
 }
 
 #title{
+  color: white;
   text-shadow: 2px -1px 3px currentColor;
   font-size: 4em;
-  padding-bottom: 60px;
+  margin-bottom: 60px;
 }
 </style>

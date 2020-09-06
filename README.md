@@ -1,24 +1,5 @@
-# omdb-nomination-site
+# Vue OMDB Movie Search App
 
-## Project setup
-```
-npm install
-```
+A simple app created for the Shopify UX Developer Intern & Web Developer Intern Challenge. This app uses Babel, Webpack, Node, Express, OMDB API, Sweetalert 2, and Bootstrap. The user is able to make a movie search and select up to 5 movies to nominate for "The Shoppies." Hope you enjoy!
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+You can find the deployed app [here](https://omdb-nomination-site.herokuapp.com/)

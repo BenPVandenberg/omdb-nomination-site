@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="content">
-      <img :src="movie.Poster" class="poster" />
+      <img v-if="movie.Poster !== 'N/A'" :src="movie.Poster" class="poster" />
+      <img v-else src="../assets/NoPhotoAvailable.jpg" class="poster" />
     </div>
     <div class="content">
       {{ movie.Title }}
